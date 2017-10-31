@@ -1,3 +1,3 @@
 # question & answer #
 
-answers questions with answers from original magic eight ball.
+answers questions with answers from original magic eight ball. (jquery)
