@@ -1,5 +1,9 @@
-# question & answer #
+# Question & Answer
 
-answers questions with answers from original magic eight ball. (jquery)
+Use this app to ask a yes-no question and receive an answer.
 
-[demo](https://bighill.org/question/)
+[Try it out](https://bighill.github.io/question-and-answer/)
+
+## How it works
+
+Answers are chosen randomly. The available answers were borrowed from the original Magic 8-Ball.
