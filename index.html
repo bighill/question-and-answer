@@ -18,16 +18,16 @@
 <!--
 	question
 -->
-<div id="question" class="page">
+<div id="question" class="page init-show">
 	<header>
 		<h1>Ask a yes-no question</h1>
 	</header>
-	<form>
+	<form id="question-form">
 		<div>
 			<input id="question-input" name="q" autofocus />
 		</div>
 		<div class="btn">
-			<input id="ask-btn" type="submit" value="Ask" />
+			<input type="submit" value="Ask" />
 		</div>
 	</form>
 </div>
@@ -35,7 +35,7 @@
 <!--
 	answer
 -->
-<div id="answer" class="page">
+<div id="answer" class="page init-hide">
 	<div id="answer">
 		<div id="answer"></div>
 	</div>

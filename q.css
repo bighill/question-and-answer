@@ -22,13 +22,13 @@ input {
   border: 1px solid #ddd;
   border-radius: 5px;
   color: #fff;
-  outline: #fff;
+  outline: none;
 }
 
-#question {
+.init-show {
   display: block;
 }
-#answer {
+.init-hide {
   display: none;
 }
 

@@ -1,6 +1,8 @@
 const fadeTime = 400;
-const qEl = document.getElementById("q");
-const submitEl = document.getElementById("ask-btn");
+const pageQuestion = document.getElementById("question");
+const pageAnswer = document.getElementById("answer");
+const questionForm = document.getElementById("question-form");
+const questionInput = document.getElementById("question-input");
 
 // $("#content")
 //   .delay(500)
@@ -17,9 +19,14 @@ const submitEl = document.getElementById("ask-btn");
 //   );
 // }
 
-function listeners(ev) {
+const handleQuestionSubmit = ev => {
+  ev.preventDefault();
+};
+
+const listeners = () => {
   console.log("listeners ready set go");
-}
+  questionForm.addEventListener("submit", handleQuestionSubmit);
+};
 
 // function reset() {
 //   opacity_1($("h1"));
@@ -57,26 +64,26 @@ var answerList = Array(
   "Very doubtful"
 );
 
-function return_answer() {
-  $("h1").css("opacity", 0);
-  $("#q-sub").css("opacity", 0);
-  $("#q").hide();
+// function return_answer() {
+//   $("h1").css("opacity", 0);
+//   $("#q-sub").css("opacity", 0);
+//   $("#q").hide();
 
-  var answer = answerList[Math.floor(Math.random() * answerList.length)];
+//   var answer = answerList[Math.floor(Math.random() * answerList.length)];
 
-  $("#a-text").text(answer);
-  $("#answer").fadeIn(fadeTime * 3);
+//   $("#a-text").text(answer);
+//   $("#answer").fadeIn(fadeTime * 3);
 
-  $("#timer").animate(
-    {
-      width: $("#content").width()
-    },
-    5000,
-    function() {
-      reset();
-    }
-  );
-}
+//   $("#timer").animate(
+//     {
+//       width: $("#content").width()
+//     },
+//     5000,
+//     function() {
+//       reset();
+//     }
+//   );
+// }
 
 // $("#q input").keyup(function() {
 //   if ($(this).val().length > 2) $("#q-sub").css("opacity", 1);
@@ -88,7 +95,12 @@ function return_answer() {
 //   e.preventDefault();
 // });
 
-var init = function() {
+const reset = function() {
+  questionInput.value = "";
+};
+
+const init = function() {
+  reset();
   listeners();
   document.removeEventListener("DOMContentLoaded", init);
 };
