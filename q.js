@@ -1,45 +1,11 @@
-const fadeTime = 400;
-const pageQuestion = document.getElementById("question");
-const pageAnswer = document.getElementById("answer");
+const questionPage = document.getElementById("question");
 const questionForm = document.getElementById("question-form");
 const questionInput = document.getElementById("question-input");
+const questionSubmit = document.getElementById("question-submit");
 
-// $("#content")
-//   .delay(500)
-//   .fadeIn(fadeTime, function() {
-//     reset();
-//   });
-
-// function opacity_1(el) {
-//   el.animate(
-//     {
-//       opacity: 1
-//     },
-//     fadeTime
-//   );
-// }
-
-const handleQuestionSubmit = ev => {
-  ev.preventDefault();
-};
-
-const listeners = () => {
-  console.log("listeners ready set go");
-  questionForm.addEventListener("submit", handleQuestionSubmit);
-};
-
-// function reset() {
-//   opacity_1($("h1"));
-//   $("#q").fadeIn(fadeTime);
-//   $("#q input")
-//     .val("")
-//     .focus();
-//   $("#q-sub").css("opacity", 0);
-//   $("#answer")
-//     .hide()
-//     .css("height", $("#q").outerHeight());
-//   $("#timer").width(0);
-// }
+const answerPage = document.getElementById("answer");
+const answerMessage = document.getElementById("answer-message");
+const answerReset = document.getElementById("reset");
 
 var answerList = Array(
   "It is certain",
@@ -64,43 +30,45 @@ var answerList = Array(
   "Very doubtful"
 );
 
-// function return_answer() {
-//   $("h1").css("opacity", 0);
-//   $("#q-sub").css("opacity", 0);
-//   $("#q").hide();
+const handleQuestionKeyed = ev => {
+  const val = ev.target.value;
+  if (val.length > 3) {
+    questionSubmit.classList.remove("invisible");
+  } else {
+    questionSubmit.classList.add("invisible");
+  }
+};
 
-//   var answer = answerList[Math.floor(Math.random() * answerList.length)];
+const handleQuestionSubmit = ev => {
+  ev.preventDefault();
+  // get answer
+  const rand = Math.floor(Math.random() * answerList.length);
+  const answer = answerList[rand];
+  answerMessage.innerHTML = answer;
+  // change view
+  questionPage.classList.add("hide");
+  answerPage.classList.remove("hide");
+};
 
-//   $("#a-text").text(answer);
-//   $("#answer").fadeIn(fadeTime * 3);
-
-//   $("#timer").animate(
-//     {
-//       width: $("#content").width()
-//     },
-//     5000,
-//     function() {
-//       reset();
-//     }
-//   );
-// }
-
-// $("#q input").keyup(function() {
-//   if ($(this).val().length > 2) $("#q-sub").css("opacity", 1);
-//   else $("#q-sub").css("opacity", 0);
-// });
-
-// $("form").on("submit", function(e) {
-//   return_answer();
-//   e.preventDefault();
-// });
-
-const reset = function() {
+const handleReset = ev => {
+  if (ev) ev.preventDefault();
+  // clear
   questionInput.value = "";
+  answerMessage.innerHTML = "";
+  // change view
+  questionPage.classList.remove("hide");
+  answerPage.classList.add("hide");
+  questionInput.focus();
+};
+
+const listeners = () => {
+  questionInput.addEventListener("keyup", handleQuestionKeyed);
+  questionForm.addEventListener("submit", handleQuestionSubmit);
+  answerReset.addEventListener("click", handleReset);
 };
 
 const init = function() {
-  reset();
+  handleReset();
   listeners();
   document.removeEventListener("DOMContentLoaded", init);
 };

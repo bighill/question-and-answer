@@ -1,9 +1,3 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   font-family: sans-serif;
   color: #fff;
@@ -17,7 +11,7 @@ h1 {
 }
 
 input {
-  padding: 3%;
+  padding: 1em;
   background: transparent;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -25,11 +19,9 @@ input {
   outline: none;
 }
 
-.init-show {
-  display: block;
-}
-.init-hide {
-  display: none;
+input[type="submit"] {
+  cursor: pointer;
+  margin-top: 1em;
 }
 
 #bg {
@@ -63,6 +55,14 @@ input {
   animation-duration: 3s;
 }
 
+.hide {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -70,14 +70,4 @@ input {
   to {
     opacity: 1;
   }
-}
-
-.btn {
-  margin: 3% 0 0;
-  cursor: pointer;
-}
-
-#timer {
-  height: 3px;
-  background-color: rgba(255, 255, 255, 0.2);
 }

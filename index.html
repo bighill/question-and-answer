@@ -15,33 +15,38 @@
 	<img src="beach.jpg" />
 </div>
 
-<!--
-	question
--->
-<div id="question" class="page init-show">
-	<header>
-		<h1>Ask a yes-no question</h1>
-	</header>
-	<form id="question-form">
-		<div>
-			<input id="question-input" name="q" autofocus />
-		</div>
-		<div class="btn">
-			<input type="submit" value="Ask" />
-		</div>
-	</form>
-</div>
+<div class="page">
 
-<!--
-	answer
--->
-<div id="answer" class="page init-hide">
-	<div id="answer">
-		<div id="answer"></div>
+	<!--
+		question
+	-->
+	<div id="question">
+		<header>
+			<h1>Ask a yes-no question</h1>
+		</header>
+		<form id="question-form">
+			<div>
+				<input id="question-input" name="q" autofocus />
+			</div>
+			<div>
+				<input id="question-submit" type="submit" class="invisible" value="Ask" />
+			</div>
+		</form>
 	</div>
-	<div id="reset">
-		Reset
+
+	<!--
+		answer
+	-->
+	<div id="answer" class="hide">
+		<h1 id="answer-message"></h1>
+		<div>
+			<input name="x" class="invisible" value="this is just filler" />
+		</div>
+		<div>
+			<input id="reset" type="submit" value="Reset" />
+		</div>
 	</div>
+
 </div>
 
 <script src="q.js"></script>
