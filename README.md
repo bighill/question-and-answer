@@ -10,4 +10,4 @@ Answers are chosen randomly. The available answers were borrowed from the origin
 
 ## Why does this exist?
 
-I made this just for fun. The first verion was created before 2010 at a time when I was learning jQuery. It has since been refactored to use vanilla JS.
+I made this just for fun. The first version was created before 2010 at a time when I was learning jQuery. It has since been refactored to use vanilla JS.
